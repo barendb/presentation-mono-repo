@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/night.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>monerepos</h1>
+          <h3>with lerna and yarn</h3>
+          <p>
+            <small>Created by <a href="https://www.linkedin.com/in/barendbootha">Barend Bootha</a></small>            
+          </p>
+        </section>
+        <section>
+          <h2>short intro</h2>
+          &nbsp;
+          <h5>backend engineer, specialise in AWS / Node space</h5>
+          &nbsp;
+          <h5>past iTICKET, Xero, Pushpay</h5>
+          &nbsp;
+          <h5>now working for exiciting startup building Vetenary Software</h5>
+          &nbsp;
+          <h5>VetRadar - Join us!</h5>
+        </section>
+        <section id="fragments">
+          <h2>Quicky...</h2>
+          <h3>why go monorepo?</h3>
+          <p class="fragment">cross project changes</p>
+          <p class="fragment">simplified dependencies</p>
+          <p class="fragment">test across entire project</p>
+          <p class="fragment">simplified code rollout (my opinion)</p>
+          <p class="fragment"><small>not here to sell you on the idea, this is an implementation talk</small></p>
+          <aside class="notes">
+            This slide has fragments which are also stepped through in the notes window.
+          </aside>
+        </section>
+        <section id="fragments">
+          <h3>Javascript everything...</h3>
+          <h3>what's your options?</h3>
+          <p class="fragment">lerna</p>
+          <p class="fragment">yarn workspaces</p>
+          <p class="fragment">or why not both 🤭</p>
+          <p class="fragment">lerna supports yarn workspaces 🎉</p>
+          <p class="fragment">Projects that use lerna, Babel, React, Jest to name a few</p>
+          <p class="fragment"><small>DISCLAIMER: I haven't used yarn workspaces in production</small></p>
+          <aside class="notes">
+            This slide has fragments which are also stepped through in the notes window.
+          </aside>
+        </section>
+        <section id="fragments">
+          <h3>monorepo 101</h3>
+          <h3>how does it look like?</h3>
+					<pre><code class="yaml" data-trim>
+            .
+            ├── package.json
+            ├── modules
+            |   ├── module1
+            |   |   └── package.json
+            |   └── module2
+            |       └── package.json
+          </code></pre>
+					<pre class="fragment"><code class="yaml" data-trim>
+            └── sls
+                ├── lambdas
+                |   └── package.json
+                └── lambda_layers
+                    └── package.json
+          </code></pre>
+          <p class="fragment">Okay? but how does it work?</p>
+          <aside class="notes">
+            This slide has fragments which are also stepped through in the notes window.
+          </aside>
+        </section>
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
