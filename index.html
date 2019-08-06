@@ -39,7 +39,7 @@
           &nbsp;
           <h5>past iTICKET, Xero, Pushpay</h5>
           &nbsp;
-          <h5>now working for exiciting startup building Vetenary Software</h5>
+          <h5>now working for exciting startup building Vetenary Software</h5>
           &nbsp;
           <h5>VetRadar - Join us!</h5>
         </section>
@@ -49,21 +49,8 @@
           <p class="fragment">cross project changes</p>
           <p class="fragment">simplified dependencies</p>
           <p class="fragment">test across entire project</p>
-          <p class="fragment">simplified code rollout (my opinion)</p>
+          <p class="fragment">simplified code roll-out (my opinion)</p>
           <p class="fragment"><small>not here to sell you on the idea, this is an implementation talk</small></p>
-          <aside class="notes">
-            This slide has fragments which are also stepped through in the notes window.
-          </aside>
-        </section>
-        <section id="fragments">
-          <h3>Javascript everything...</h3>
-          <h3>what's your options?</h3>
-          <p class="fragment">lerna</p>
-          <p class="fragment">yarn workspaces</p>
-          <p class="fragment">or why not both 🤭</p>
-          <p class="fragment">lerna supports yarn workspaces 🎉</p>
-          <p class="fragment">Projects that use lerna, Babel, React, Jest to name a few</p>
-          <p class="fragment"><small>DISCLAIMER: I haven't used yarn workspaces in production</small></p>
           <aside class="notes">
             This slide has fragments which are also stepped through in the notes window.
           </aside>
@@ -71,7 +58,7 @@
         <section id="fragments">
           <h3>monorepo 101</h3>
           <h3>how does it look like?</h3>
-					<pre><code class="yaml" data-trim>
+			<pre><code class="yaml" data-trim>
             .
             ├── package.json
             ├── modules
@@ -80,14 +67,74 @@
             |   └── module2
             |       └── package.json
           </code></pre>
-					<pre class="fragment"><code class="yaml" data-trim>
+			<pre class="fragment"><code class="yaml" data-trim>
             └── sls
                 ├── lambdas
                 |   └── package.json
                 └── lambda_layers
                     └── package.json
           </code></pre>
-          <p class="fragment">Okay? but how does it work?</p>
+          <aside class="notes">
+            This slide has fragments which are also stepped through in the notes window.
+          </aside>
+        </section>
+        <section>
+          <h4>dumping all your projects in a single repo comes with problems</h4>
+          <ul class="fragment">
+            <li>each package/module needs it's dependencies downloaded</li>
+            <li>how do you manage packages depend on other packages?</li>
+            <li>disk space</li>
+            <li>version management</li>
+          </ul>
+        </section>
+        <section id="fragments">
+          <h3>Javascript everywhere...</h3>
+          <h3>what's your options?</h3>
+          <p class="fragment">upcoming npm v7</p>
+          <p class="fragment">lerna</p>
+          <p class="fragment">yarn workspaces</p>
+          <p class="fragment">or why not yarn & lerna 🤭</p>
+          <p class="fragment">lerna supports yarn workspaces 🎉</p>
+          <p class="fragment">projects that use lerna, Babel, React, Jest to name a few</p>
+          <p class="fragment"><small>DISCLAIMER: I haven't used yarn workspaces in production</small></p>
+          <aside class="notes">
+            This slide has fragments which are also stepped through in the notes window.
+          </aside>
+        </section>
+        <section>
+          <h3>lerna and yarn workspaces are tools to help you simplify these issues</h3>
+          &nbsp;
+          &nbsp;
+          <p class="fragment"><span class="fragment highlight-red">BIG NOTE:</span> they're not deployment tools</p>
+        </section>
+        <section>
+          <p style="text-decoration: red underline ">think very carefully how you will roll-out your code</p>
+          <ul>
+            <li>what is the deployment cadence of each deployable package in your repo</li>
+            <li>what is your package versioning strategy (fixed or independent)
+              <ul>
+                <li><span class="highlight">fixed</span> all packages get the same version</li>
+                <li><span class="highlight">independent</span> package versions get incremented independently</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <p>whats our mono-repo deployment strategy?</p>
+          <ul class="fragment">
+            <li>platform code is in a mono-repo</li>
+            <li>production deploy => publish and fixed version increment</li>
+            <li>deploy entire stack every time</li>
+            <li>same version of code everywhere === less guess work</li>
+            <li>all automated - single button press</li>
+            <li>deploy very often, multiple times a day (when we get more devs 🤘)</li>
+          </ul>
+        </section>
+        <section>
+          <h3>🏖🍻🍷🧟‍♂️ find what works for you...</h3>
+        </section>
+        <section>
+          <h3>demo time - living with a mono-repo</h3>
           <aside class="notes">
             This slide has fragments which are also stepped through in the notes window.
           </aside>
